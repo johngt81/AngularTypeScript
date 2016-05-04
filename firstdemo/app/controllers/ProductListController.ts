@@ -15,10 +15,15 @@ namespace moduleFirstDemo {
         products:moduleFirstDemo.domain.IProduct[];
         currentProduct: Object;
         
-        constructor(){
+        constructor(private DataProductService: moduleFirstDemo.common.IDataProductService){
             this.title="Product list";
             this.showImage=false;
-            this.products=[
+            this.products=[];
+            var productResource=DataProductService.getProductResource();
+            productResource.query((data:moduleFirstDemo.domain.IProduct[])=>{
+                this.products=data;
+            })
+            /*this.products=[
                 {
 					"productId": 1,
 					"productName": "Leaf Rake",
@@ -51,7 +56,7 @@ namespace moduleFirstDemo {
             ,new Date(2015,3,1),19.6,"it's test",
             "http://www.rantpets.com/wp-content/uploads/2014/09/3..jpg");
             newProduct.price= newProduct.calculateDiscount(10);
-            this.products.push(newProduct);
+            this.products.push(newProduct);*/
             
         }
         toggleImage():void{

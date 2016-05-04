@@ -1,7 +1,7 @@
 var moduleFirstDemo;
 (function (moduleFirstDemo) {
     'user strict';
-    var demoModule = angular.module('demoModule', ['ngRoute']);
+    var demoModule = angular.module('demoModule', ['ngRoute', 'common.services']);
     demoModule.config(demoRouteConfig);
     function demoRouteConfig($routeProvider) {
         $routeProvider.when('/inicio', {

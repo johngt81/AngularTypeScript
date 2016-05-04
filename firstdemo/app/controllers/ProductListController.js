@@ -2,10 +2,17 @@ var moduleFirstDemo;
 (function (moduleFirstDemo) {
     'use strict';
     var ProductListController = (function () {
-        function ProductListController() {
+        function ProductListController(DataProductService) {
+            var _this = this;
+            this.DataProductService = DataProductService;
             this.title = "Product list";
             this.showImage = false;
-            this.products = [
+            this.products = [];
+            var productResource = DataProductService.getProductResource();
+            productResource.query(function (data) {
+                _this.products = data;
+            });
+            /*this.products=[
                 {
                     "productId": 1,
                     "productName": "Leaf Rake",
@@ -34,9 +41,11 @@ var moduleFirstDemo;
                     "imageUrl": "http://lghttp.18445.nexcesscdn.net/808F9E/mage/media/catalog/product/cache/1/thumbnail/550x/9df78eab33525d08d6e5fb8d27136e95/v/5/v508_hammer.jpg"
                 }
             ];
-            var newProduct = new moduleFirstDemo.domain.Product(8, "Test", "CCC", new Date(2015, 3, 1), 19.6, "it's test", "http://www.rantpets.com/wp-content/uploads/2014/09/3..jpg");
-            newProduct.price = newProduct.calculateDiscount(10);
-            this.products.push(newProduct);
+            var newProduct= new moduleFirstDemo.domain.Product(8,"Test","CCC"
+            ,new Date(2015,3,1),19.6,"it's test",
+            "http://www.rantpets.com/wp-content/uploads/2014/09/3..jpg");
+            newProduct.price= newProduct.calculateDiscount(10);
+            this.products.push(newProduct);*/
         }
         ProductListController.prototype.toggleImage = function () {
             this.showImage = !this.showImage;
