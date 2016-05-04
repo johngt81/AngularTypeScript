@@ -5,6 +5,7 @@ namespace moduleFirstDemo {
         showImage:boolean;
         products:any[];
         toggleImage():void;
+        currentProduct: Object;
     }
     export class ProductListController implements IProductListController{
         //static $inject: Array<string> = ['dependency1'];
@@ -12,6 +13,7 @@ namespace moduleFirstDemo {
         title:string;
         showImage:boolean;
         products:any[];
+        currentProduct: Object;
         
         constructor(){
             this.title="Product list";
@@ -24,7 +26,7 @@ namespace moduleFirstDemo {
 					"releaseDate": new Date(2009, 2, 19),
 					"description": "Leaf rake with 48-inch wooden handle.",
 					"price": 19.95,
-					"imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+					"imageUrl": "http://www.paraide.com/Portals/0/CVStoreImages/13160_540.jpg"
 				},
 				{
 					"productId": 2,
@@ -33,7 +35,7 @@ namespace moduleFirstDemo {
 					"releaseDate": new Date(2010, 2, 18),
 					"description": "15 gallon capacity rolling garden cart",
 					"price": 32.99,
-					"imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+					"imageUrl": "http://img.diytrade.com/smimg/351131/2219910-752095-0/GC1813_Garden_Cart/7d50.jpg"
 				},
 				{
 					"productId": 5,
@@ -42,7 +44,7 @@ namespace moduleFirstDemo {
 					"releaseDate": new Date(2013, 4, 21),
 					"description": "Curved claw steel hammer",
 					"price": 8.99,
-					"imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
+					"imageUrl": "http://lghttp.18445.nexcesscdn.net/808F9E/mage/media/catalog/product/cache/1/thumbnail/550x/9df78eab33525d08d6e5fb8d27136e95/v/5/v508_hammer.jpg"
 				}
             ];
         }
