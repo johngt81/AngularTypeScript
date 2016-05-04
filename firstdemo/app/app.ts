@@ -1,4 +1,4 @@
-namespace moduleJC{
+namespace moduleFirstDemo{
     'user strict'
     var demoModule= angular.module('demoModule',['ngRoute']);
     demoModule.config(demoRouteConfig);
@@ -6,8 +6,10 @@ namespace moduleJC{
         
         $routeProvider.when('/inicio',{
             templateUrl:'app/views/inicio.html'
-        }).when('/personajes',{
-            templateUrl:'app/views/personajes.html'
+        }).when('/products',{
+            templateUrl:'app/views/productList.html',
+            controller:'ProductListController',
+            controllerAs:'vm'
         }).when('/acerca',{
             templateUrl:'app/views/acerca.html'
         }).otherwise('/inicio');
