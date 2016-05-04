@@ -3,7 +3,7 @@ namespace moduleFirstDemo {
     export interface IProductListController{
         title:string;
         showImage:boolean;
-        products:any[];
+        products:moduleFirstDemo.domain.IProduct[];
         toggleImage():void;
         currentProduct: Object;
     }
@@ -12,7 +12,7 @@ namespace moduleFirstDemo {
         //constructor(private dependency1: dependency1Type) {}
         title:string;
         showImage:boolean;
-        products:any[];
+        products:moduleFirstDemo.domain.IProduct[];
         currentProduct: Object;
         
         constructor(){
@@ -47,6 +47,12 @@ namespace moduleFirstDemo {
 					"imageUrl": "http://lghttp.18445.nexcesscdn.net/808F9E/mage/media/catalog/product/cache/1/thumbnail/550x/9df78eab33525d08d6e5fb8d27136e95/v/5/v508_hammer.jpg"
 				}
             ];
+            var newProduct= new moduleFirstDemo.domain.Product(8,"Test","CCC"
+            ,new Date(2015,3,1),19.6,"it's test",
+            "http://www.rantpets.com/wp-content/uploads/2014/09/3..jpg");
+            newProduct.price= newProduct.calculateDiscount(10);
+            this.products.push(newProduct);
+            
         }
         toggleImage():void{
             this.showImage=!this.showImage;
