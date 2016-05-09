@@ -2,16 +2,22 @@ var moduleFirstDemo;
 (function (moduleFirstDemo) {
     'use strict';
     var ProductListController = (function () {
-        function ProductListController(DataProductService) {
+        function ProductListController(DataProductService, DataProductFactory) {
             var _this = this;
             this.DataProductService = DataProductService;
+            this.DataProductFactory = DataProductFactory;
             this.title = "Product list";
             this.showImage = false;
             this.products = [];
-            var productResource = DataProductService.getProductResource();
-            productResource.query(function (data) {
-                _this.products = data;
+            this.showProgress = true;
+            this.DataProductFactory.getProducts().then(function (res) {
+                _this.products = res;
+                _this.showProgress = false;
             });
+            /* var productResource=DataProductService.getProductResource();
+             productResource.query((data:moduleFirstDemo.domain.IProduct[])=>{
+                 this.products=data;
+             })*/
             /*this.products=[
                 {
                     "productId": 1,
@@ -50,6 +56,7 @@ var moduleFirstDemo;
         ProductListController.prototype.toggleImage = function () {
             this.showImage = !this.showImage;
         };
+        ProductListController.$inject = ['DataProductService', 'DataProductFactory'];
         return ProductListController;
     }());
     moduleFirstDemo.ProductListController = ProductListController;

@@ -8,21 +8,30 @@ namespace moduleFirstDemo {
         currentProduct: Object;
     }
     export class ProductListController implements IProductListController{
-        //static $inject: Array<string> = ['dependency1'];
+       static $inject: Array<string> = ['DataProductService','DataProductFactory'];
         //constructor(private dependency1: dependency1Type) {}
         title:string;
         showImage:boolean;
         products:moduleFirstDemo.domain.IProduct[];
         currentProduct: Object;
+        showProgress:boolean;
         
-        constructor(private DataProductService: moduleFirstDemo.common.IDataProductService){
+        constructor(private DataProductService: moduleFirstDemo.common.IDataProductService,
+        private DataProductFactory: moduleFirstDemo.IDataProductFactory){
             this.title="Product list";
             this.showImage=false;
             this.products=[];
-            var productResource=DataProductService.getProductResource();
+            this.showProgress=true;
+            this.DataProductFactory.getProducts().then(
+                res=>{
+                    this.products=res;
+                    this.showProgress=false;
+                }
+            );
+           /* var productResource=DataProductService.getProductResource();
             productResource.query((data:moduleFirstDemo.domain.IProduct[])=>{
                 this.products=data;
-            })
+            })*/
             /*this.products=[
                 {
 					"productId": 1,
