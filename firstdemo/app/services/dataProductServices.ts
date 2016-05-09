@@ -12,7 +12,7 @@ namespace moduleFirstDemo.common {
         static $inject: Array<string> = ['$resource'];
         constructor(private $resource: ng.resource.IResourceService) {}
         getProductResource(): ng.resource.IResourceClass<IProductResource> {
-			return this.$resource("http://localhost:3000/products/:productId");
+			return this.$resource("http://localhost:3000/products/:id");
 		}
     }
 

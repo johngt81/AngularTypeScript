@@ -7,8 +7,14 @@ var moduleFirstDemo;
             function DataProductService($resource) {
                 this.$resource = $resource;
             }
-            DataProductService.prototype.getProductResource = function () {
-                return this.$resource("http://localhost:3000/products/:id");
+            DataProductService.prototype.getResource = function () {
+                return this.$resource("http://localhost:3000/products/", {}, {
+                    query: { method: "GET", isArray: true },
+                    get: { method: "GET", url: "http://localhost:3000/products/:id" },
+                    remove: { method: "DELETE", url: "http://localhost:3000/products/:id" },
+                    save: { method: "POST", url: "http://localhost:3000/products/" },
+                    update: { method: 'PUT', url: "http://localhost:3000/products/:id" }
+                });
             };
             DataProductService.$inject = ['$resource'];
             return DataProductService;
