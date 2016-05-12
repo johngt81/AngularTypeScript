@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":";AAAA,4BAA0B,eAAe,CAAC;AAAlC,gDAAkC;AAC1C,2CAA0C,8BAA8B,CAAC;AAAjE,+FAAiE","sourcesContent":["export {environment} from './environment';\nexport {Angular2ProjectAppComponent} from './angular2-project.component';\n"]}
