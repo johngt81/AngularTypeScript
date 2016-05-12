@@ -19,7 +19,7 @@ We will need to install:
 * Download the source code from [GITHUB](https://github.com/jcyovera/AngularTypeScript.git)
 
 * For this example we are working with Angular-Cli :
-These commands should install angular-Cli and the server for angular 2 App 
+These commands should install [angular-Cli](https://cli.angular.io/) and the server for angular 2 App 
 
 ```
 npm install -g angular-cli
