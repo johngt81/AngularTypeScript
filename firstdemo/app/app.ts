@@ -3,7 +3,7 @@ namespace moduleFirstDemo{
     var demoModule= angular.module('demoModule',['ngRoute','common.services']);
     demoModule.config(demoRouteConfig);
     function demoRouteConfig($routeProvider:ng.route.IRouteProvider):void{
-        
+        //first commit from visual studio code
         $routeProvider.when('/inicio',{
             templateUrl:'app/views/inicio.html'
         }).when('/products',{
